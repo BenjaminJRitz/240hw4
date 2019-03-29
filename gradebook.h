@@ -7,7 +7,7 @@ class GradeBook {
   double Get(size_t) const;
 
   double GetGPA() const;
-  double getMax() const;
+  double GetMax() const;
 
   /* Returns a new GradeBook instance with the floating point parameter
    * appended, increasing size by 1.
