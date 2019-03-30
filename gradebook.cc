@@ -1,5 +1,9 @@
-#include "../hw4/gradebook.h"
+#include "gradebook.h"
 
+
+int GradeBook::GetSize() const {
+  return grades_.size();
+}
 
 void GradeBook::Add(double grade) {
   grades_.push_back(grade);
@@ -34,5 +38,26 @@ double GradeBook::GetMax() const {
     }  // ending bracket for for loop
   }  // ending bracket for if else
   return ret;
-}  // ending bracket for method GetMax
+}  // ending bracket for method GetMax 
 
+const GradeBook GradeBook::operator+(double rhs) const {
+  GradeBook newGradeBook;
+  for (int i = 0; i < grades_.size(); ++i) {
+    newGradeBook.Add(grades_[i]);
+  }  // ending bracket for for loop
+  newGradeBook.Add(rhs);
+  return newGradeBook;
+}  // ending bracket for method operator+ (gradebook + double)
+
+const GradeBook GradeBook::operator+(const GradeBook& rhs) const {
+  GradeBook newGradeBook;
+  //int count;
+  for (int i = 0; i < grades_.size(); ++i) {
+    newGradeBook.Add(grades_[i]);
+  }  // ending bracket for for loop
+  //count = newGradeBook.GetSize();
+  for (int i = 0; i < rhs.GetSize(); ++i) {
+    newGradeBook.Add(rhs.Get(i));
+  }  // ending bracket for for loop
+  return newGradeBook;
+}  // ending bracket for method operator+ (gradebook + gradebook)

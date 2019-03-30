@@ -3,11 +3,13 @@
 
 class GradeBook {
  public:
-  void Add(double);
-  double Get(size_t) const;
+  void Add(double);  // completed by teacher
+  double Get(size_t) const;  // completed by teacher
 
-  double GetGPA() const;
-  double GetMax() const;
+  double GetGPA() const;  // taken from hw3
+  double GetMax() const;  // taken from hw3
+
+  int GetSize() const;
 
   /* Returns a new GradeBook instance with the floating point parameter
    * appended, increasing size by 1.
