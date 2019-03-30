@@ -42,7 +42,7 @@ double GradeBook::GetMax() const {
 
 const GradeBook GradeBook::operator+(double rhs) const {
   GradeBook newGradeBook;
-  for (int i = 0; i < grades_.size(); ++i) {
+  for (int i = 0; i < static_cast<int>(grades_.size()); ++i) {
     newGradeBook.Add(grades_[i]);
   }  // ending bracket for for loop
   newGradeBook.Add(rhs);
@@ -52,11 +52,11 @@ const GradeBook GradeBook::operator+(double rhs) const {
 const GradeBook GradeBook::operator+(const GradeBook& rhs) const {
   GradeBook newGradeBook;
   //int count;
-  for (int i = 0; i < grades_.size(); ++i) {
+  for (int i = 0; i < static_cast<int>(grades_.size()); ++i) {
     newGradeBook.Add(grades_[i]);
   }  // ending bracket for for loop
   //count = newGradeBook.GetSize();
-  for (int i = 0; i < rhs.GetSize(); ++i) {
+  for (int i = 0; i < static_cast<int>(rhs.GetSize()); ++i) {
     newGradeBook.Add(rhs.Get(i));
   }  // ending bracket for for loop
   return newGradeBook;
