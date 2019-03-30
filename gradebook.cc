@@ -1,5 +1,5 @@
-#include "gradebook.h"
-
+// Copyright 2019 <Benjamin Ritz>
+#include "../hw4/gradebook.h"
 
 int GradeBook::GetSize() const {
   return grades_.size();
@@ -37,7 +37,7 @@ double GradeBook::GetMax() const {
     }  // ending bracket for for loop
   }  // ending bracket for if else
   return ret;
-}  // ending bracket for method GetMax 
+}  // ending bracket for method GetMax
 
 const GradeBook GradeBook::operator+(double rhs) const {
   GradeBook newGradeBook;
@@ -50,11 +50,9 @@ const GradeBook GradeBook::operator+(double rhs) const {
 
 const GradeBook GradeBook::operator+(const GradeBook& rhs) const {
   GradeBook newGradeBook;
-  //int count;
   for (int i = 0; i < static_cast<int>(grades_.size()); ++i) {
     newGradeBook.Add(grades_[i]);
   }  // ending bracket for for loop
-  //count = newGradeBook.GetSize();
   for (int i = 0; i < static_cast<int>(rhs.GetSize()); ++i) {
     newGradeBook.Add(rhs.Get(i));
   }  // ending bracket for for loop
@@ -92,25 +90,25 @@ bool GradeBook::operator==(const GradeBook& rhs) const {
 
 bool GradeBook::operator==(double rhs) const {
   double callingAve = 0;
-    double paramAve = rhs;
-    bool ret;
+  double paramAve = rhs;
+  bool ret;
 
-    if ((static_cast<int>(grades_.size())) > 0) {
-        for (int i = 0; i < (static_cast<int>(grades_.size())); ++i) {
-            callingAve += grades_[i];
-        }
-        callingAve /= (static_cast<int>(grades_.size()));
+  if ((static_cast<int>(grades_.size())) > 0) {
+    for (int i = 0; i < (static_cast<int>(grades_.size())); ++i) {
+      callingAve += grades_[i];
+    }
+    callingAve /= (static_cast<int>(grades_.size()));
     } else {
-        callingAve = -INFINITY;
+      callingAve = -INFINITY;
     }  // ending bracket of callingAve if/else
 
     if ( ((callingAve - paramAve) > (0.00001)) ||
         ((callingAve - paramAve) < (-0.00001))) {
-            ret = false;
+          ret = false;
     } else {
-        ret = true;
-    }  // ending bracket for outside param if/else
-    return ret;
+    ret = true;
+  }  // ending bracket for outside param if/else
+  return ret;
 }  // ending bracket for method operator == (gradebook == double)
 
 bool GradeBook::operator<(const GradeBook& rhs) const {
@@ -198,6 +196,6 @@ bool operator<(double lhs, const GradeBook& rhs) {
   bool ret = false;
   if (lhs < rhs.GetGPA()) {
     ret = true;
-  }  // ending bracekt for if 
+  }  // ending bracekt for if
   return ret;
 }  // ending bracket for function operator< (double < gradebook)

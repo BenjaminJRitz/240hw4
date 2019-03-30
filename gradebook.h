@@ -1,3 +1,7 @@
+// Copyright 2019 <Benjamin Ritz>
+#ifndef GRADEBOOK_H  // NOLINT
+#define GRADEBOOK_H  // NOLINT
+
 #include <cmath>
 #include <vector>
 
@@ -9,8 +13,6 @@ class GradeBook {
   int GetSize() const;
   double GetGPA() const;  // taken from hw3
   double GetMax() const;  // taken from hw3
-
- 
 
   /* Returns a new GradeBook instance with the floating point parameter
    * appended, increasing size by 1.
@@ -87,3 +89,4 @@ bool operator==(double lhs, const GradeBook& rhs);
  * of the GradeBook parameter.
  */
 bool operator<(double lhs, const GradeBook& rhs);
+#endif  // NOLINT
